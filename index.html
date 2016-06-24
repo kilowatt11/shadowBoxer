@@ -11,28 +11,73 @@
 	<div class="container-fluid">
 		<div class="panel panel-default text-center">
 			<div class="panel-heading">
-				<h3>Player Name : <span id="playerName">None</span></h3>
-				<h1>Player Health = <span id="playerHealth"></span></h1>
-				<h3>Hits = <span id="hits"></span></h3>
-			</div>
-			<div id="player-panel" class="panel-body text-center player">
-				<img src="http://img12.deviantart.net/df49/i/2014/063/c/2/street_fighter___ryu_silhouette_by_azza1070-d78vkoz.png" alt="Fighter"
-					width="200">
-			</div>
-			<div class="panel-footer text-center">
-				<button type="button" class="btn btn-primary" onclick="slap()">SLAP!</button>
-				<button type="button" class="btn btn-warning" onclick="punch()">PUNCH!</button>
-				<button type="button" class="btn btn-danger" onclick="kick()">KICK!</button>
-				<form class="form">
-					<div class="form-group text-center">
-						<label for="exampleInputName2">Name</label>
-						<input type="text" class="form-control" id="userInput" placeholder="Jane Doe">
+				<div class="row">
+					<div class="col-md-6">
+						<h3>Player Name : <span id="playerName">None</span></h3>
+						<h1>Player Health = <span id="playerHealth"></span></h1>
+						<h3>Hits = <span id="hits"></span></h3>
 					</div>
-					<button type="button" class="btn btn-info" onclick="submitName()">Submit</button>
-				</form>
+					<div class="col-md-6">
+						<h3>Player Name : <span id="playerName">None</span></h3>
+						<h1>Player Health = <span id="playerHealth"></span></h1>
+						<h3>Hits = <span id="hits"></span></h3>
+					</div>
+
+
+				</div>
+			</div>
+
+
+
+			<div id="player-panel " class="panel-body player ">
+				<div class="row">
+					<div class="col-md-2">
+						<button type="button" class="bunusButtons">Defense</button>
+						<button type="button" class="bunusButtons">Offense</button>
+						<button type="button" class="bunusButtons">Run Away!</button>
+					</div>
+
+					<div class="col-md-4">
+						<img src="http://pksa.com/portals/0/Images/OurFinal/GirlKickSilhouette.jpg" alt="fighter 2" width="360">
+					</div>
+
+					<div class="col-md-4">
+						<img src="http://img12.deviantart.net/df49/i/2014/063/c/2/street_fighter___ryu_silhouette_by_azza1070-d78vkoz.png
+					        " alt="Fighter " width="200 ">
+					</div>
+					<div class="col-md-2">
+						<button type="button" class="bunusButtons">Defense</button>
+						<button type="button" class="bunusButtons">Offense</button>
+						<button type="button" class="bunusButtons">Run Away!</button>
+					</div>
+
+				</div>
 
 			</div>
 		</div>
+
+		<div class="panel-footer text-center ">
+			<div class="row">
+				<div class="col-md-6">
+
+					<button type="button " class="btn btn-primary " onclick="slap() ">SLAP!</button>
+					<button type="button " class="btn btn-warning " onclick="punch() ">PUNCH!</button>
+					<button type="button " class="btn btn-danger " onclick="kick() ">KICK!</button>
+
+				</div>
+				<div class="col-md-6">
+					<button type="button " class="btn btn-primary " onclick="slap() ">SLAP!</button>
+					<button type="button " class="btn btn-warning " onclick="punch() ">PUNCH!</button>
+					<button type="button " class="btn btn-danger " onclick="kick() ">KICK!</button>
+				</div>
+
+
+
+			</div>
+
+
+		</div>
+	</div>
 
 
 
@@ -41,9 +86,15 @@
 
 
 
+
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js "></script>
+	<script src="game.js "></script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<script src="app.js"></script>
+
 </body>
 
 </html>
