@@ -1,0 +1,49 @@
+<html>
+
+<head>
+	<title>Slap Object Game</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="game.css">
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="panel panel-default text-center">
+			<div class="panel-heading">
+				<h3>Player Name : <span id="playerName">None</span></h3>
+				<h1>Player Health = <span id="playerHealth"></span></h1>
+				<h3>Hits = <span id="hits"></span></h3>
+			</div>
+			<div id="player-panel" class="panel-body text-center player">
+				<img src="http://img12.deviantart.net/df49/i/2014/063/c/2/street_fighter___ryu_silhouette_by_azza1070-d78vkoz.png" alt="Fighter"
+					width="200">
+			</div>
+			<div class="panel-footer text-center">
+				<button type="button" class="btn btn-primary" onclick="slap()">SLAP!</button>
+				<button type="button" class="btn btn-warning" onclick="punch()">PUNCH!</button>
+				<button type="button" class="btn btn-danger" onclick="kick()">KICK!</button>
+				<form class="form">
+					<div class="form-group text-center">
+						<label for="exampleInputName2">Name</label>
+						<input type="text" class="form-control" id="userInput" placeholder="Jane Doe">
+					</div>
+					<button type="button" class="btn btn-info" onclick="submitName()">Submit</button>
+				</form>
+
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="app.js"></script>
+</body>
+
+</html>
