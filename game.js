@@ -5,13 +5,13 @@ var players = {
 
 var fighters={}
 
-function Fighter(name, health, hiPunch, lowPunch, hiKick, lowKick, special, defense, img){
+function Fighter(name, health, hiPunch, lowPunch, hiKick, lowKick, special, abilities, img){
     var newFighter = this;
 
     newFighter.name = name
     newFighter.image = img
     newFighter.health = health
-    newFighter.defense = defense
+    newFighter.abilities = []
     newFighter.attacks = {
         hiPunch: {
             damage: hiPunch,
@@ -32,9 +32,9 @@ function Fighter(name, health, hiPunch, lowPunch, hiKick, lowKick, special, defe
     }
     fighters[name.toLowerCase()] = newFighter;
 }
-new Fighter('Blanca', 150, 10, 8, 20, 15, 50, .2, 'http://silhouettesfree.com/video-games/street-fighter/blanka-silhouette-image.png');
-new Fighter('Ryu', 100, 8, 5, 12, 10, 30, .4);
-new Fighter('Ken', 100, 8, 5, 12, 10, 30, .4, 'https://s-media-cache-ak0.pinimg.com/736x/2d/65/a2/2d65a20416370290f9407ffaf7f2db5a.jpg');
+new Fighter('Blanca', 150, 10, 8, 20, 15, 50, 0, 'http://silhouettesfree.com/video-games/street-fighter/blanka-silhouette-image.png');
+new Fighter('Ryu', 100, 8, 5, 12, 10, 30, 0, 'http://img12.deviantart.net/df49/i/2014/063/c/2/street_fighter___ryu_silhouette_by_azza1070-d78vkoz.png');
+new Fighter('Ken', 100, 8, 5, 12, 10, 30, 0, 'https://s-media-cache-ak0.pinimg.com/736x/2d/65/a2/2d65a20416370290f9407ffaf7f2db5a.jpg');
 
 // console.log(fighters);
 
@@ -73,12 +73,30 @@ function update (x){
     }else{
     var healthElem2 = document.getElementById('playerTwoHealth').innerHTML = players.player2.health;
     var nameElem2 = document.getElementById('playerTwoName').innerHTML = players.player2.name;
-    var imgElem1 = document.getElementById('playerTwoImage').src = players.player1.image;
+    var imgElem1 = document.getElementById('playerTwoImage').src = players.player2.image;
     }
 
 }
+var abilities = {}
+function Ability(name, modifier, description){
+    var newAbility = this;
+    newAbility.name = name
+    newAbility.modifier = modifier
+    newAbility.description
+    newAbility.draw = function (){};
 
+    abilities[name.toLowerCase()] = newAbility
+}
+new Ability('Distraction',0.2, 'smoke and noise')
+new Ability('Kevlar',0.4, 'high tech armor')
+new Ability('Avoidance',0.3, 'trained in Ninja agility')
 
+function addDefense1(ability){
+players.player1.abilities = abilities[ability]
+console.log(players.player1)
+}
+
+// console.log(abilities[name])
 
 
 
