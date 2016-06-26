@@ -3,28 +3,36 @@ var players = {
     player2: ""
 }
 
-var fighters={}
+var fighters = {}
 
-function Fighter(name, health, hiPunch, lowPunch, hiKick, lowKick, special, abilities, img){
+function Fighter(name, health, hiPunch, lowPunch, hiKick, lowKick, special, modifier, img) {
     var newFighter = this;
 
     newFighter.name = name
     newFighter.image = img
     newFighter.health = health
-    newFighter.abilities = []
+    newFighter.abilities = {
+        modifier: modifier
+    }
     newFighter.attacks = {
         hiPunch: {
             damage: hiPunch,
-            
+
         },
         lowPunch: {
-            damage: lowPunch
+            damage: lowPunch,
+            image: 'http://thumbs4.ebaystatic.com/d/l225/m/myxiB2FfnNAsm-M4Gl_1v4g.jpg',
         },
         hiKick: {
-            damage: hiKick
+            damage: hiKick,
+            image: 'http://www.clker.com/cliparts/n/4/v/8/X/C/karate-kick-silhouette-hi.png',
+            image2: 'http://previews.123rf.com/images/fox3x/fox3x0911/fox3x091100012/5819709-KARATE-KICK-Stock-Vector-silhouette.jpg'
         },
         lowKick: {
-            damage: lowKick
+            damage: lowKick,
+        
+            image: 'http://i.ebayimg.com/00/s/NDE5WDQ0OA==/$(KGrHqVHJE!E88YlI4ZPBP(mw1p5Jg~~60_35.JPG',
+            image2: 'http://i.ebayimg.com/images/a/(KGrHqR,!jIE696CjBwhBP(gDKropw~~/s-l300.jpg',
         },
         special: {
             damage: special
@@ -38,62 +46,85 @@ new Fighter('Ken', 100, 8, 5, 12, 10, 30, 0, 'https://s-media-cache-ak0.pinimg.c
 
 // console.log(fighters);
 
-function playerOneChoice(name){
+function playerOneChoice(name) {
     players.player1 = fighters[name];
     update(players.player1);
     console.log(players.player1);
 };
-function playerTwoChoice(name){
+
+function playerTwoChoice(name) {
     players.player2 = fighters[name];
     console.log(players.player2)
     update(players.player2);
-
 }
 
-var attack1 = function(attackType,fighter,target){
-  target.health -=    fighter.attacks[attackType].damage-(fighter.attacks[attackType].damage * target.defense)
-  console.log(fighter.name + ' attacked ' + target.name + ' for ' + fighter.attacks.lowKick.damage + ' damage')
-    console.log(target.name + ' remaining health ' +target.health)
+
+
+var attack1 = function (attackType, fighter, target){
+
+    target.health -= fighter.attacks[attackType].damage - (fighter.attacks[attackType].damage * target.abilities.modifier)
     document.getElementById('playerTwoHealth').innerHTML = Math.round(target.health)
-    
-    
+    document.getElementById('playerOneImage').src = fighter.attacks[attackType].image;
+
+    console.log(fighter.name + ' attacked ' + target.name + ' for ' + fighter.attacks[attackType].damage + ' damage')
+    console.log(target.name + ' remaining health ' + target.health)
 }
-var attack2 = function(attackType,fighter,target){
-  target.health -=    fighter.attacks[attackType].damage-(fighter.attacks[attackType].damage * target.defense)
-  console.log(fighter.name + ' attacked ' + target.name + ' for ' + fighter.attacks.lowKick.damage + ' damage')
-    console.log(target.name + ' remaining health ' +target.health)
+
+var attack2 = function (attackType, fighter, target){
+    target.health -= fighter.attacks[attackType].damage - (fighter.attacks[attackType].damage * target.abilities.modifier)
     document.getElementById('playerOneHealth').innerHTML = Math.round(target.health);
+    document.getElementById('playerTwoImage').src = fighter.attacks[attackType].image2;
+
+    console.log(fighter.name + ' attacked ' + target.name + ' for ' + fighter.attacks[attackType].damage + ' damage')
+    console.log(target.name + ' remaining health ' + target.health)
 }
 
-function update (x){
-    if(x == players.player1){
-    var healthElem1 = document.getElementById('playerOneHealth').innerHTML = players.player1.health;
-    var nameElem1 = document.getElementById('playerOneName').innerHTML = players.player1.name;
-    var imgElem1 = document.getElementById('playerOneImage').src = players.player1.image;
-    }else{
-    var healthElem2 = document.getElementById('playerTwoHealth').innerHTML = players.player2.health;
-    var nameElem2 = document.getElementById('playerTwoName').innerHTML = players.player2.name;
-    var imgElem1 = document.getElementById('playerTwoImage').src = players.player2.image;
+
+
+function update(x) {
+    if (x == players.player1) {
+        var healthElem1 = document.getElementById('playerOneHealth').innerHTML = players.player1.health;
+        var nameElem1 = document.getElementById('playerOneName').innerHTML = players.player1.name;
+        var imgElem1 = document.getElementById('playerOneImage').src = players.player1.image;
+        var defenseElem = document.getElementById('hits1').innerHTML = players.player1.abilities.modifier;
+    } else {
+        var healthElem2 = document.getElementById('playerTwoHealth').innerHTML = players.player2.health;
+        var nameElem2 = document.getElementById('playerTwoName').innerHTML = players.player2.name;
+        var imgElem1 = document.getElementById('playerTwoImage').src = players.player2.image;
+        var defenseElem = document.getElementById('hits2').innerHTML = players.player2.abilities.modifier;
     }
-
 }
+
+
+
 var abilities = {}
-function Ability(name, modifier, description){
+function Ability(name, modifier, description) {
     var newAbility = this;
     newAbility.name = name
     newAbility.modifier = modifier
     newAbility.description
-    newAbility.draw = function (){};
+    newAbility.draw = function () { };
 
     abilities[name.toLowerCase()] = newAbility
 }
-new Ability('Distraction',0.2, 'smoke and noise')
-new Ability('Kevlar',0.4, 'high tech armor')
-new Ability('Avoidance',0.3, 'trained in Ninja agility')
 
-function addDefense1(ability){
-players.player1.abilities = abilities[ability]
-console.log(players.player1)
+new Ability('Distraction', 0.2, 'smoke and noise')
+new Ability('Kevlar', 0.4, 'high tech armor')
+new Ability('Avoidance', 0.3, 'trained in Ninja agility')
+
+
+function addDefense1(ability) {
+    players.player1.abilities = abilities[ability]
+    console.log(players.player1)
+    
+    var defenseElem = document.getElementById('abilityDescription1').innerHTML = players.player1.abilities.name + "= defense of " +players.player1.abilities.modifier;
+}
+function addDefense2(ability) {
+    players.player2.abilities = abilities[ability]
+    console.log(players.player2.abilities.name)
+    
+    var defenseElem = document.getElementById('abilityDescription2').innerHTML = players.player2.abilities.name + "= defense of " +players.player2.abilities.modifier;
+    
 }
 
 // console.log(abilities[name])

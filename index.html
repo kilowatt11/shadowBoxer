@@ -15,12 +15,12 @@
                     <div class="col-md-6">
                         <h3>Player Name : <span id="playerOneName">None</span></h3>
                         <h1>Player Health = <span id="playerOneHealth"></span></h1>
-                        <h3>Hits = <span id="hits"></span></h3>
+                        <h3 id="abilityDescription1"> defense of = <span id="hits1"></span></h3>
                     </div>
                     <div class="col-md-6">
                         <h3>Player Name : <span id="playerTwoName">None</span></h3>
                         <h1>Player Health = <span id="playerTwoHealth"></span></h1>
-                        <h3>Hits = <span id="hits"></span></h3>
+                        <h3 id="abilityDescription2"> defense of = <span id="hits2"></span></h3>
                     </div>
 
 
@@ -29,15 +29,15 @@
 
 
 
-            <div id="player-panel " class="panel-body player ">
+            <div  id="player-panel "class="panel-body player ">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-2" >
                         <button type="button" class="bunusButtons" onclick="addDefense1('distraction')">Distraction</button>
-                        <button type="button" class="bunusButtons">Offense</button>
-                        <button type="button" class="bunusButtons">Run Away!</button>
+                        <button type="button" class="bunusButtons" onclick="addDefense1('kevlar')">Kevlar</button>
+                        <button type="button" class="bunusButtons" onclick="addDefense1('avoidance')">Avoidance</button>
                     </div>
 
-                    <div class="col-md-4" >
+                    <div class="col-md-4" id="player1">
                         <img id="playerOneImage" src="http://previews.123rf.com/images/arlatis/arlatis1112/arlatis111200104/11357724-Naked-stehenden-Mannes-Lizenzfreie-Bilder.jpg" alt="fighter 1" width="250">
                     </div>
 
@@ -46,9 +46,9 @@
 					        " alt="Fighter 2" width="250">
                     </div>
                     <div class="col-md-2">
-                        <button type="button" class="bunusButtons" onclick="addDefense1('Distraction')">Distraction</button>
-                        <button type="button" class="bunusButtons">Offense</button>
-                        <button type="button" class="bunusButtons">Run Away!</button>
+                        <button type="button" class="bunusButtons" onclick="addDefense2('distraction')">Distraction</button>
+                        <button type="button" class="bunusButtons" onclick="addDefense2('kevlar')">Kevlar</button>
+                        <button type="button" class="bunusButtons" onclick="addDefense2('avoidance')">Avoidance</button>
                     </div>
 
                 </div>
