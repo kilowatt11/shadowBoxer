@@ -34,7 +34,7 @@ function Fighter(name, health, hiPunch, lowPunch, hiKick, lowKick, special, defe
 }
 new Fighter('Blanca', 150, 10, 8, 20, 15, 50, .2, 'http://silhouettesfree.com/video-games/street-fighter/blanka-silhouette-image.png');
 new Fighter('Ryu', 100, 8, 5, 12, 10, 30, .4);
-new Fighter('Ken', 100, 8, 5, 12, 10, 30, .4 );
+new Fighter('Ken', 100, 8, 5, 12, 10, 30, .4, 'https://s-media-cache-ak0.pinimg.com/736x/2d/65/a2/2d65a20416370290f9407ffaf7f2db5a.jpg');
 
 // console.log(fighters);
 
@@ -73,6 +73,7 @@ function update (x){
     }else{
     var healthElem2 = document.getElementById('playerTwoHealth').innerHTML = players.player2.health;
     var nameElem2 = document.getElementById('playerTwoName').innerHTML = players.player2.name;
+    var imgElem1 = document.getElementById('playerTwoImage').src = players.player1.image;
     }
 
 }
