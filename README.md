@@ -6,8 +6,9 @@ The Object Game
 - [ ] add algebra.js for percentage equation
 
 ### To Do for Style
-- [ ] improve style once fully functional
-- 
+
+
+
 ### Thoughts for added extras
 - [ ] 1
 - [ ] 2
