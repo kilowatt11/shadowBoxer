@@ -7,7 +7,7 @@ The Object Game
 
 ### To Do for Style
 
-
+- [ ] improve style once fully functional
 
 ### Thoughts for added extras
 - [ ] 1
