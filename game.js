@@ -192,5 +192,11 @@ function reset() {
 
 // console.log(abilities[name])
 
+//need to install algebra.js for this equation
+function percentDamage(health, damage){
+    var percent = damage / health;
+    return percent
+}
+
 
 
