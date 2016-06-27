@@ -17,11 +17,14 @@ function Fighter(name, health, hiPunch, lowPunch, hiKick, lowKick, special, modi
     newFighter.attacks = {
         hiPunch: {
             damage: hiPunch,
+            image: 'http://i.imgur.com/lRsoksr.jpg?1',
+            image2: 'http://m.rgbimg.com/cache1nGjbo/users/h/hi/hisks/600/mhYppxc.jpg'
 
         },
         lowPunch: {
             damage: lowPunch,
             image: 'http://thumbs4.ebaystatic.com/d/l225/m/myxiB2FfnNAsm-M4Gl_1v4g.jpg',
+            image2: 'http://i.imgur.com/86bHgaf.jpg?1'
         },
         hiKick: {
             damage: hiKick,
@@ -30,7 +33,7 @@ function Fighter(name, health, hiPunch, lowPunch, hiKick, lowKick, special, modi
         },
         lowKick: {
             damage: lowKick,
-        
+
             image: 'http://i.ebayimg.com/00/s/NDE5WDQ0OA==/$(KGrHqVHJE!E88YlI4ZPBP(mw1p5Jg~~60_35.JPG',
             image2: 'http://i.ebayimg.com/images/a/(KGrHqR,!jIE696CjBwhBP(gDKropw~~/s-l300.jpg',
         },
@@ -60,21 +63,55 @@ function playerTwoChoice(name) {
 
 
 
-var attack1 = function (attackType, fighter, target){
+var attack1 = function (attackType, fighter, target) {
+    var defense = fighter.attacks[attackType].damage * target.abilities.modifier;
 
-    target.health -= fighter.attacks[attackType].damage - (fighter.attacks[attackType].damage * target.abilities.modifier)
-    document.getElementById('playerTwoHealth').innerHTML = Math.round(target.health)
-    document.getElementById('playerOneImage').src = fighter.attacks[attackType].image;
+    if (target.health < fighter.attacks[attackType].damage - defense || target.health == 0) {
+
+        var healthElem1 = document.getElementById('playerTwoHealth');
+        healthElem1.innerHTML = "Player is Dead!";
+        document.getElementById('player2').style.backgroundColor = "red";
+        document.getElementById('playerOneImage').src = fighter.attacks[attackType].image;
+        
+
+    } else if (target.health < 40 && target.health > 5) {
+        document.getElementById('player2').style.backgroundColor = "yellow";
+        target.health -= fighter.attacks[attackType].damage - defense;
+        document.getElementById('playerTwoHealth').innerHTML = Math.round(target.health)
+        document.getElementById('playerOneImage').src = fighter.attacks[attackType].image;
+
+    }else {
+        target.health -= fighter.attacks[attackType].damage - defense;
+        document.getElementById('playerTwoHealth').innerHTML = Math.round(target.health)
+        document.getElementById('playerOneImage').src = fighter.attacks[attackType].image;
+    }
 
     console.log(fighter.name + ' attacked ' + target.name + ' for ' + fighter.attacks[attackType].damage + ' damage')
     console.log(target.name + ' remaining health ' + target.health)
 }
 
-var attack2 = function (attackType, fighter, target){
-    target.health -= fighter.attacks[attackType].damage - (fighter.attacks[attackType].damage * target.abilities.modifier)
-    document.getElementById('playerOneHealth').innerHTML = Math.round(target.health);
-    document.getElementById('playerTwoImage').src = fighter.attacks[attackType].image2;
+var attack2 = function (attackType, fighter, target) {
+    var defense = fighter.attacks[attackType].damage * target.abilities.modifier;
 
+   if (target.health < fighter.attacks[attackType].damage - defense || target.health == 0) {
+
+        var healthElem1 = document.getElementById('playerOneHealth');
+        healthElem1.innerHTML = "Player is Dead!";
+        document.getElementById('player1').style.backgroundColor = "red";
+        document.getElementById('playerTwoImage').src = fighter.attacks[attackType].image2;
+        
+
+    } else if (target.health < 40 && target.health > 5) {
+        document.getElementById('player1').style.backgroundColor = "yellow";
+        target.health -= fighter.attacks[attackType].damage - defense;
+        document.getElementById('playerOneHealth').innerHTML = Math.round(target.health)
+        document.getElementById('playerTwoImage').src = fighter.attacks[attackType].image2;
+
+    }else {
+        target.health -= fighter.attacks[attackType].damage - defense;
+        document.getElementById('playerOneHealth').innerHTML = Math.round(target.health)
+        document.getElementById('playerTwoImage').src = fighter.attacks[attackType].image2;
+    }
     console.log(fighter.name + ' attacked ' + target.name + ' for ' + fighter.attacks[attackType].damage + ' damage')
     console.log(target.name + ' remaining health ' + target.health)
 }
@@ -116,15 +153,15 @@ new Ability('Avoidance', 0.3, 'trained in Ninja agility')
 function addDefense1(ability) {
     players.player1.abilities = abilities[ability]
     console.log(players.player1)
-    
-    var defenseElem = document.getElementById('abilityDescription1').innerHTML = players.player1.abilities.name + "= defense of " +players.player1.abilities.modifier;
+
+    var defenseElem = document.getElementById('abilityDescription1').innerHTML = players.player1.abilities.name + "= defense of " + players.player1.abilities.modifier;
 }
 function addDefense2(ability) {
     players.player2.abilities = abilities[ability]
     console.log(players.player2.abilities.name)
-    
-    var defenseElem = document.getElementById('abilityDescription2').innerHTML = players.player2.abilities.name + "= defense of " +players.player2.abilities.modifier;
-    
+
+    var defenseElem = document.getElementById('abilityDescription2').innerHTML = players.player2.abilities.name + "= defense of " + players.player2.abilities.modifier;
+
 }
 
 // console.log(abilities[name])
