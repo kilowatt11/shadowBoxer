@@ -49,6 +49,8 @@ new Fighter('Ken', 100, 8, 5, 12, 10, 30, 0, 'https://s-media-cache-ak0.pinimg.c
 
 // console.log(fighters);
 
+
+
 function playerOneChoice(name) {
     players.player1 = fighters[name];
     update(players.player1);
@@ -60,6 +62,7 @@ function playerTwoChoice(name) {
     console.log(players.player2)
     update(players.player2);
 }
+
 
 
 
@@ -118,6 +121,9 @@ var attack2 = function (attackType, fighter, target) {
 
 
 
+
+
+
 function update(x) {
     if (x == players.player1) {
         var healthElem1 = document.getElementById('playerOneHealth').innerHTML = players.player1.health;
@@ -131,6 +137,7 @@ function update(x) {
         var defenseElem = document.getElementById('hits2').innerHTML = players.player2.abilities.modifier;
     }
 }
+
 
 
 
@@ -156,13 +163,18 @@ function addDefense1(ability) {
 
     var defenseElem = document.getElementById('abilityDescription1').innerHTML = players.player1.abilities.name + "= defense of " + players.player1.abilities.modifier;
 }
+
+
 function addDefense2(ability) {
     players.player2.abilities = abilities[ability]
     console.log(players.player2.abilities.name)
 
     var defenseElem = document.getElementById('abilityDescription2').innerHTML = players.player2.abilities.name + "= defense of " + players.player2.abilities.modifier;
-
 }
+
+
+
+
 
 function reset() {
     players.player1 = '';
@@ -175,11 +187,7 @@ function reset() {
     document.getElementById('playerTwoHealth').innerHTML = '';
     document.getElementById('playerTwoName').innerHTML = '';
     document.getElementById('playerTwoImage').src = 'http://previews.123rf.com/images/arlatis/arlatis1112/arlatis111200104/11357724-Naked-stehenden-Mannes-Lizenzfreie-Bilder.jpg';
-    document.getElementById('abilityDescription2').innerHTML = 'defense of =';
-
-
-
-
+    document.getElementById('abilityDescription2').innerHTML = 'defense of = ';
 }
 
 // console.log(abilities[name])
