@@ -183,11 +183,13 @@ function reset() {
     document.getElementById('playerOneName').innerHTML = '';
     document.getElementById('playerOneImage').src = 'http://previews.123rf.com/images/arlatis/arlatis1112/arlatis111200104/11357724-Naked-stehenden-Mannes-Lizenzfreie-Bilder.jpg';
     document.getElementById('abilityDescription1').innerHTML = 'defense of =';
+    document.getElementById('player1').style.backgroundColor = 'white';
 
     document.getElementById('playerTwoHealth').innerHTML = '';
     document.getElementById('playerTwoName').innerHTML = '';
     document.getElementById('playerTwoImage').src = 'http://previews.123rf.com/images/arlatis/arlatis1112/arlatis111200104/11357724-Naked-stehenden-Mannes-Lizenzfreie-Bilder.jpg';
     document.getElementById('abilityDescription2').innerHTML = 'defense of = ';
+    document.getElementById('player2').style.backgroundColor = 'white';
 }
 
 // console.log(abilities[name])
