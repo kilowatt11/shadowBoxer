@@ -72,7 +72,7 @@ var attack1 = function (attackType, fighter, target) {
         healthElem1.innerHTML = "Player is Dead!";
         document.getElementById('player2').style.backgroundColor = "red";
         document.getElementById('playerOneImage').src = fighter.attacks[attackType].image;
-        
+
 
     } else if (target.health < 40 && target.health > 5) {
         document.getElementById('player2').style.backgroundColor = "yellow";
@@ -80,7 +80,7 @@ var attack1 = function (attackType, fighter, target) {
         document.getElementById('playerTwoHealth').innerHTML = Math.round(target.health)
         document.getElementById('playerOneImage').src = fighter.attacks[attackType].image;
 
-    }else {
+    } else {
         target.health -= fighter.attacks[attackType].damage - defense;
         document.getElementById('playerTwoHealth').innerHTML = Math.round(target.health)
         document.getElementById('playerOneImage').src = fighter.attacks[attackType].image;
@@ -93,13 +93,13 @@ var attack1 = function (attackType, fighter, target) {
 var attack2 = function (attackType, fighter, target) {
     var defense = fighter.attacks[attackType].damage * target.abilities.modifier;
 
-   if (target.health < fighter.attacks[attackType].damage - defense || target.health == 0) {
+    if (target.health < fighter.attacks[attackType].damage - defense || target.health == 0) {
 
         var healthElem1 = document.getElementById('playerOneHealth');
         healthElem1.innerHTML = "Player is Dead!";
         document.getElementById('player1').style.backgroundColor = "red";
         document.getElementById('playerTwoImage').src = fighter.attacks[attackType].image2;
-        
+
 
     } else if (target.health < 40 && target.health > 5) {
         document.getElementById('player1').style.backgroundColor = "yellow";
@@ -107,7 +107,7 @@ var attack2 = function (attackType, fighter, target) {
         document.getElementById('playerOneHealth').innerHTML = Math.round(target.health)
         document.getElementById('playerTwoImage').src = fighter.attacks[attackType].image2;
 
-    }else {
+    } else {
         target.health -= fighter.attacks[attackType].damage - defense;
         document.getElementById('playerOneHealth').innerHTML = Math.round(target.health)
         document.getElementById('playerTwoImage').src = fighter.attacks[attackType].image2;
@@ -161,6 +161,24 @@ function addDefense2(ability) {
     console.log(players.player2.abilities.name)
 
     var defenseElem = document.getElementById('abilityDescription2').innerHTML = players.player2.abilities.name + "= defense of " + players.player2.abilities.modifier;
+
+}
+
+function reset() {
+    players.player1 = '';
+    players.player2 = '';
+    document.getElementById('playerOneHealth').innerHTML = '';
+    document.getElementById('playerOneName').innerHTML = '';
+    document.getElementById('playerOneImage').src = 'http://previews.123rf.com/images/arlatis/arlatis1112/arlatis111200104/11357724-Naked-stehenden-Mannes-Lizenzfreie-Bilder.jpg';
+    document.getElementById('abilityDescription1').innerHTML = 'defense of =';
+
+    document.getElementById('playerTwoHealth').innerHTML = '';
+    document.getElementById('playerTwoName').innerHTML = '';
+    document.getElementById('playerTwoImage').src = 'http://previews.123rf.com/images/arlatis/arlatis1112/arlatis111200104/11357724-Naked-stehenden-Mannes-Lizenzfreie-Bilder.jpg';
+    document.getElementById('abilityDescription2').innerHTML = 'defense of =';
+
+
+
 
 }
 

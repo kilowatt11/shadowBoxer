@@ -58,7 +58,7 @@
 
         <div class="panel-footer text-center">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-5">
                     <div class="playerOneAttack ">
                         <button type=" button " class="btn btn-primary " onclick="attack1('hiPunch',players.player1,players.player2) ">High Punch!</button>
                         <button type="button " class="btn btn-warning " onclick="attack1('lowPunch',players.player1,players.player2)">Low Punch!</button>
@@ -72,7 +72,10 @@
 
 
                 </div>
-                <div class="col-md-6 ">
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary" onclick="reset()">RESET</button>
+                </div>
+                <div class="col-md-5">
                     <div class="playerTwoAttack ">
                         <button type="button" class="btn btn-primary " onclick="attack2('hiPunch',players.player2,players.player1)">High Punch!</button>
                         <button type="button" class="btn btn-warning " onclick="attack2('lowPunch',players.player2,players.player1)">Low Punch!</button>
